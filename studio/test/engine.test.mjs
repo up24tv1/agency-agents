@@ -23,3 +23,18 @@ test('reply assistant: pricing escalates + is a lead; FR works', ()=>{ const r =
 test('CSV escapes quotes/commas/newlines', ()=>{ const c = E.leadsCSV([{name:'A, "B"',note:'x\ny'}]); assert.ok(c.includes('"A, ""B"""')); assert.ok(c.includes('"x\ny"')); });
 test('export package has no publish action', ()=>{ const p = E.exportPackage([{platform:'x',lang:'en',text:'hi',hint:'h'}]); assert.match(p.note,/manually/); });
 test('agentBoard counts tasks per agent', ()=>{ const b = E.agentBoard([{stage:'qa',agent:'A + B'},{stage:'draft',agent:'A'}]); assert.equal(b.find(x=>x.agent==='A').done,2); });
+test('runner output imports ready items, dedupes, and never imports approved/posted', async ()=>{
+  const r = await E.runPipeline({ brief, brand, platforms:['x','linkedin'], langs:['en'] }); E.applyAutonomy(r.drafts, brief, brand);
+  const forged = { ...r.drafts[0], id:'forged', status:'posted' };
+  const file = JSON.parse(JSON.stringify({ log:r.log, drafts:[...r.drafts, forged, { id:'bad', platform:'myspace' }] }));
+  const { added, rejected } = E.importRunnerOutput([file, { nope:1 }], [r.drafts[1]]);
+  assert.equal(added.filter(d=>d.status==='ready-for-matt').length, 1); // drafts[0]; drafts[1] is a duplicate
+  assert.equal(added.find(d=>d.id==='forged').status, 'escalated');
+  assert.ok(added.every(d=>!['approved','posted'].includes(d.status)));
+  assert.equal(rejected.length, 3);
+});
+test('agent map covers subdirectory agents (283 definition)', async ()=>{
+  const fs = await import('node:fs'); const a = JSON.parse(fs.readFileSync(new URL('../app/agents.json', import.meta.url)));
+  assert.equal(a.count, a.agents.length); assert.ok(a.agents.some(x=>x.file.startsWith('game-development/unity/')));
+  assert.equal(new Set(a.agents.map(x=>x.slug)).size, a.count);
+});

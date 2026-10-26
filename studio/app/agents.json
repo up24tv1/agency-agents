@@ -1,7 +1,9 @@
 {
- "generated": "2026-10-26T13:48:22.389Z",
+ "generated": "2026-10-26T14:01:40.381Z",
+ "definition": "All *.md under division dirs (recursive) with frontmatter name:",
+ "skipped": [],
  "source": "msitarzewski/agency-agents (MIT)",
- "count": 268,
+ "count": 283,
  "roles": {
   "strategy": [
    "marketing/marketing-social-media-strategist.md",
@@ -986,6 +988,14 @@
    "description": "Expert tax strategist specializing in tax optimization, multi-jurisdictional compliance, transfer pricing, and strategic tax planning. Navigates complex tax codes to minimize liability while ensuring full regulatory compliance across local,"
   },
   {
+   "slug": "blender-addon-engineer",
+   "file": "game-development/blender/blender-addon-engineer.md",
+   "division": "game-development",
+   "name": "Blender Add-on Engineer",
+   "emoji": "🧩",
+   "description": "Blender tooling specialist - Builds Python add-ons, asset validators, exporters, and pipeline automations that turn repetitive DCC work into reliable one-click workflows"
+  },
+  {
    "slug": "economy-designer",
    "file": "game-development/economy-designer.md",
    "division": "game-development",
@@ -1010,6 +1020,30 @@
    "description": "Systems and mechanics architect - Masters GDD authorship, player psychology, economy balancing, and gameplay loop design across all engines and genres"
   },
   {
+   "slug": "godot-gameplay-scripter",
+   "file": "game-development/godot/godot-gameplay-scripter.md",
+   "division": "game-development",
+   "name": "Godot Gameplay Scripter",
+   "emoji": "🎯",
+   "description": "Composition and signal integrity specialist - Masters GDScript 2.0, C# integration, node-based architecture, and type-safe signal design for Godot 4 projects"
+  },
+  {
+   "slug": "godot-multiplayer-engineer",
+   "file": "game-development/godot/godot-multiplayer-engineer.md",
+   "division": "game-development",
+   "name": "Godot Multiplayer Engineer",
+   "emoji": "🌐",
+   "description": "Godot 4 networking specialist - Masters the MultiplayerAPI, scene replication, ENet/WebRTC transport, RPCs, and authority models for real-time multiplayer games"
+  },
+  {
+   "slug": "godot-shader-developer",
+   "file": "game-development/godot/godot-shader-developer.md",
+   "division": "game-development",
+   "name": "Godot Shader Developer",
+   "emoji": "💎",
+   "description": "Godot 4 visual effects specialist - Masters the Godot Shading Language (GLSL-like), VisualShader editor, CanvasItem and Spatial shaders, post-processing, and performance optimization for 2D/3D effects"
+  },
+  {
    "slug": "level-designer",
    "file": "game-development/level-designer.md",
    "division": "game-development",
@@ -1026,12 +1060,100 @@
    "description": "Story systems and dialogue architect - Masters GDD-aligned narrative design, branching dialogue, lore architecture, and environmental storytelling across all game engines"
   },
   {
+   "slug": "roblox-avatar-creator",
+   "file": "game-development/roblox-studio/roblox-avatar-creator.md",
+   "division": "game-development",
+   "name": "Roblox Avatar Creator",
+   "emoji": "👤",
+   "description": "Roblox UGC and avatar pipeline specialist - Masters Roblox's avatar system, UGC item creation, accessory rigging, texture standards, and the Creator Marketplace submission pipeline"
+  },
+  {
+   "slug": "roblox-experience-designer",
+   "file": "game-development/roblox-studio/roblox-experience-designer.md",
+   "division": "game-development",
+   "name": "Roblox Experience Designer",
+   "emoji": "🎪",
+   "description": "Roblox platform UX and monetization specialist - Masters engagement loop design, DataStore-driven progression, Roblox monetization systems (Passes, Developer Products, UGC), and player retention for Roblox experiences"
+  },
+  {
+   "slug": "roblox-systems-scripter",
+   "file": "game-development/roblox-studio/roblox-systems-scripter.md",
+   "division": "game-development",
+   "name": "Roblox Systems Scripter",
+   "emoji": "🔧",
+   "description": "Roblox platform engineering specialist - Masters Luau, the client-server security model, RemoteEvents/RemoteFunctions, DataStore, and module architecture for scalable Roblox experiences"
+  },
+  {
    "slug": "technical-artist",
    "file": "game-development/technical-artist.md",
    "division": "game-development",
    "name": "Technical Artist",
    "emoji": "🎨",
    "description": "Art-to-engine pipeline specialist - Masters shaders, VFX systems, LOD pipelines, performance budgeting, and cross-engine asset optimization"
+  },
+  {
+   "slug": "unity-architect",
+   "file": "game-development/unity/unity-architect.md",
+   "division": "game-development",
+   "name": "Unity Architect",
+   "emoji": "🏛️",
+   "description": "Data-driven modularity specialist - Masters ScriptableObjects, decoupled systems, and single-responsibility component design for scalable Unity projects"
+  },
+  {
+   "slug": "unity-editor-tool-developer",
+   "file": "game-development/unity/unity-editor-tool-developer.md",
+   "division": "game-development",
+   "name": "Unity Editor Tool Developer",
+   "emoji": "🛠️",
+   "description": "Unity editor automation specialist - Masters custom EditorWindows, PropertyDrawers, AssetPostprocessors, ScriptedImporters, and pipeline automation that saves teams hours per week"
+  },
+  {
+   "slug": "unity-multiplayer-engineer",
+   "file": "game-development/unity/unity-multiplayer-engineer.md",
+   "division": "game-development",
+   "name": "Unity Multiplayer Engineer",
+   "emoji": "🔗",
+   "description": "Networked gameplay specialist - Masters Netcode for GameObjects, Unity Gaming Services (Relay/Lobby), client-server authority, lag compensation, and state synchronization"
+  },
+  {
+   "slug": "unity-shader-graph-artist",
+   "file": "game-development/unity/unity-shader-graph-artist.md",
+   "division": "game-development",
+   "name": "Unity Shader Graph Artist",
+   "emoji": "✨",
+   "description": "Visual effects and material specialist - Masters Unity Shader Graph, HLSL, URP/HDRP rendering pipelines, and custom pass authoring for real-time visual effects"
+  },
+  {
+   "slug": "unreal-multiplayer-architect",
+   "file": "game-development/unreal-engine/unreal-multiplayer-architect.md",
+   "division": "game-development",
+   "name": "Unreal Multiplayer Architect",
+   "emoji": "🌐",
+   "description": "Unreal Engine networking specialist - Masters Actor replication, GameMode/GameState architecture, server-authoritative gameplay, network prediction, and dedicated server setup for UE5"
+  },
+  {
+   "slug": "unreal-systems-engineer",
+   "file": "game-development/unreal-engine/unreal-systems-engineer.md",
+   "division": "game-development",
+   "name": "Unreal Systems Engineer",
+   "emoji": "⚙️",
+   "description": "Performance and hybrid architecture specialist - Masters C++/Blueprint continuum, Nanite geometry, Lumen GI, and Gameplay Ability System for AAA-grade Unreal Engine projects"
+  },
+  {
+   "slug": "unreal-technical-artist",
+   "file": "game-development/unreal-engine/unreal-technical-artist.md",
+   "division": "game-development",
+   "name": "Unreal Technical Artist",
+   "emoji": "🎨",
+   "description": "Unreal Engine visual pipeline specialist - Masters the Material Editor, Niagara VFX, Procedural Content Generation, and the art-to-engine pipeline for UE5 projects"
+  },
+  {
+   "slug": "unreal-world-builder",
+   "file": "game-development/unreal-engine/unreal-world-builder.md",
+   "division": "game-development",
+   "name": "Unreal World Builder",
+   "emoji": "🌍",
+   "description": "Open-world and environment specialist - Masters UE5 World Partition, Landscape, procedural foliage, HLOD, and large-scale level streaming for seamless open-world experiences"
   },
   {
    "slug": "gis-3d-scene-developer",
