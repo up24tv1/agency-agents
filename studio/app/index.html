@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Studio — content agency in a box</title>
+<meta name="description" content="Owner-operated content agency: brief to multi-platform posts with QA, fact-check and human approval. EN/FR.">
+<meta name="theme-color" content="#0f172a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f97316'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+<link rel="modulepreload" href="app.js"><link rel="modulepreload" href="engine.js"><link rel="modulepreload" href="i18n.js"><link rel="modulepreload" href="model.js">
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+<header class="top">
+  <div class="brandmark"><span class="logo" aria-hidden="true">S</span><span><strong>Studio</strong> <small data-i18n="tagline">content agency in a box</small></span></div>
+  <div class="top-actions">
+    <label class="sr" for="brandSel" data-i18n="brand">Brand</label>
+    <select id="brandSel"></select>
+    <button id="langBtn" class="ghost" aria-label="Switch language / Changer de langue">FR</button>
+  </div>
+</header>
+<nav class="tabs" aria-label="Sections" id="tabs"></nav>
+<main id="main" tabindex="-1">
+  <noscript><p class="card">Studio needs JavaScript to run (it works fully offline, no account). / Studio nécessite JavaScript.</p></noscript>
+  <section id="view"></section>
+</main>
+<div id="toast" role="status" aria-live="polite"></div>
+<footer class="foot"><span data-i18n="foot">Nothing here posts or sends automatically. You publish.</span> · <a href="https://github.com/msitarzewski/agency-agents" rel="noopener">Agents: agency-agents (MIT)</a></footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
