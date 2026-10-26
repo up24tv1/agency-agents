@@ -58,3 +58,4 @@ button:disabled{opacity:.5;cursor:not-allowed}
 .tabs{width:100%;max-width:100vw;min-width:0}body>*{min-width:0}
 pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;background:var(--panel2);padding:12px;border-radius:10px;margin:8px 0}
 .tabs{min-height:57px}#view{min-height:60vh}.top{min-height:59px}#brandSel{min-width:160px}
+input[type=file]{min-height:44px;padding:8px}.small-label{margin-top:0}

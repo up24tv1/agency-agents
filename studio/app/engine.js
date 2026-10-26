@@ -194,3 +194,24 @@ export function agentBoard(log){
   const b = {}; for (const l of log) for (const a of String(l.agent).split(/ \+ |, /)) { (b[a] ||= { agent:a, done:0, stages:new Set() }); b[a].done++; b[a].stages.add(l.stage); }
   return Object.values(b).map(x=>({ ...x, stages:[...x.stages] }));
 }
+
+// ---------- runner import (G23) ----------
+// Accepts the parsed contents of studio/out/<date>/*.drafts.json written by scripts/runner.mjs.
+// Validates shape, drops anything already present (by id), and never imports a status beyond ready-for-matt/escalated:
+// approval, posting and sending stay with Matt.
+export function importRunnerOutput(files, existing = []){
+  const have = new Set(existing.map(d=>d.id)); const added = []; const rejected = [];
+  for (const f of files) {
+    const list = Array.isArray(f?.drafts) ? f.drafts : null; if (!list) { rejected.push('not a runner *.drafts.json file'); continue; }
+    for (const d of list) {
+      if (!d || typeof d.id!=='string' || !PLATFORMS[d.platform] || !['en','fr'].includes(d.lang) || typeof d.text!=='string') { rejected.push('invalid draft'); continue; }
+      if (have.has(d.id)) { rejected.push('duplicate '+d.id); continue; }
+      const status = d.status==='ready-for-matt' ? 'ready-for-matt' : 'escalated';
+      added.push({ id:d.id, platform:d.platform, lang:d.lang, text:d.text.slice(0,PLATFORMS[d.platform].limit*2), source:'runner', agent:String(d.agent||'runner'),
+        issues:Array.isArray(d.issues)?d.issues.filter(i=>i&&i.msg).map(i=>({level:i.level==='fail'?'fail':'warn',code:String(i.code||''),msg:String(i.msg)})):[],
+        status, hint:String(d.hint||''), brand:d.brand, created:d.created||new Date().toISOString(), fixAttempts:d.fixAttempts||0 });
+      have.add(d.id);
+    }
+  }
+  return { added, rejected };
+}

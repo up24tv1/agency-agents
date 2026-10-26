@@ -1,4 +1,4 @@
-import { PLATFORMS, runPipeline, applyAutonomy, digest, agentBoard, ingestX, suggestReplies, exportPackage, leadsCSV, qaCheck, factCheck } from './engine.js';
+import { PLATFORMS, runPipeline, applyAutonomy, digest, agentBoard, ingestX, suggestReplies, importRunnerOutput, exportPackage, leadsCSV, qaCheck, factCheck } from './engine.js';
 import { makeProvider } from './model.js';
 import { I18N } from './i18n.js';
 
@@ -47,6 +47,8 @@ const VIEWS = {
   center(){ const g = digest(S.drafts); const run = S.runs[S.runs.length-1];
     return `<h1>${t('centerH')}</h1><p class="lead">${t('centerP')}</p>
     <div class="grid four">${stat('readyN',g.ready)}${stat('escN',g.escalated,g.escalated?'bad':'')}${stat('apprN',g.approved)}${stat('staleN',g.waitingOver24h,g.waitingOver24h?'warn':'')}</div>
+    <section class="card"><h2>${t('importH')}</h2><p class="meta">${t('importP')}</p>
+      <label for="runnerFiles" class="small-label">${t('importBtn')}</label><input type="file" id="runnerFiles" accept=".json,application/json" multiple></section>
     <section class="card"><h2>${t('canvas')}</h2><div id="canvas">${canvasHTML(run)}</div></section>`; },
   studio(){ const b = brand(); const B = S.lastBrief || {};
     return `<h1>${t('studioH')}</h1><p class="lead">${t('studioP')}</p>
@@ -147,7 +149,11 @@ document.addEventListener('click', async e=>{
   if (e.target.id==='newBrand'){ const id='b'+Date.now().toString(36); S.brands.push({ id, name:t('newBrand'), voice:'', cta:'', cta_fr:'', keywords:[], hashtags:[], banned:[], signature:'', disclose:false }); S.brandId=id; save(); render(); }
   if (e.target.id==='resetBtn' && confirm(t('resetQ'))){ localStorage.removeItem(KEY); S = load(); render(); }
 });
-document.addEventListener('change', e=>{
+document.addEventListener('change', async e=>{
+  if (e.target.id==='runnerFiles'){ const parsed = []; let bad = 0;
+    for (const f of e.target.files) { if (f.size > 5e6) { bad++; continue; } try { parsed.push(JSON.parse(await f.text())); } catch { bad++; } }
+    const { added, rejected } = importRunnerOutput(parsed, S.drafts); S.drafts.push(...added); save(); render();
+    toast(`${added.filter(d=>d.status==='ready-for-matt').length} ${t('readyN')} · ${added.filter(d=>d.status==='escalated').length} ${t('escN')} · ${rejected.length+bad} ${t('skippedN')}`); return; }
   if (e.target.id==='brandSel'){ S.brandId = e.target.value; save(); render(); }
   if (e.target.id==='rd'){ rosterDiv = e.target.value; render(); }
   if (e.target.dataset.slug){ const s = e.target.dataset.slug; S.team = e.target.checked ? [...new Set([...S.team,s])] : S.team.filter(x=>x!==s); save(); render(); }
