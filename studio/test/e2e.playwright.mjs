@@ -28,4 +28,16 @@ for (const [w,h,tag] of [[360,780,'m'],[1280,860,'d']]) {
   await p.click('#langBtn'); await p.click('[data-tab=center]'); res.checks[tag+'_fr'] = await p.locator('h1').innerText(); await p.screenshot({ path:`${out}/${tag}-center-fr.png` });
   await ctx.close();
 }
+// G23: unattended runner -> import into app via file picker (fresh browser profile)
+{ const { execSync } = await import('node:child_process'); const st = '/tmp/agency-agents/studio';
+  fs.copyFileSync(st+'/queue/example-brief.json.sample', st+'/queue/e2e.json'); execSync('node '+st+'/scripts/runner.mjs');
+  const day = new Date().toISOString().slice(0,10); const f = `${st}/out/${day}/e2e.drafts.json`;
+  const ctx = await b.newContext({ viewport:{width:360,height:780} }); const p = await ctx.newPage(); p.on('pageerror', e=>res.errors.push('import: '+e.message));
+  await p.goto('http://localhost:5178/#center'); await p.setInputFiles('#runnerFiles', [f]); await p.waitForTimeout(400);
+  res.checks.import_toast = await p.locator('#toast').innerText();
+  await p.click('[data-tab=approvals]'); res.checks.import_ready = await p.locator('button[data-act=approve]:not([disabled])').count();
+  await p.click('[data-tab=center]'); await p.setInputFiles('#runnerFiles', [f]); await p.waitForTimeout(300); res.checks.import_again_toast = await p.locator('#toast').innerText();
+  const a = await new AxeBuilder({ page:p }).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze(); res.axe['m-center-import'] = a.violations.map(v=>v.id);
+  await p.screenshot({ path:`${out}/m-center-import.png` }); await ctx.close();
+  execSync(`rm -rf ${st}/out ${st}/queue/done`); }
 await b.close(); console.log(JSON.stringify(res,null,1)); fs.writeFileSync('/workspace/rotato-100x/e2e-result.json', JSON.stringify(res,null,1));
