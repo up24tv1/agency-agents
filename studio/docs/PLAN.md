@@ -30,3 +30,14 @@ G19 Build journal (PROCESS_LOG.md) and honest three-layer audit.
 
 ## Hard rules
 No spend, no paid APIs, no signups, no posting/sending, no deploy, no merge to main without Matt's approval. Never invent facts or numbers.
+
+## Mid-build changes (logged as they arrived)
+**Oct 26, 8:46 AM CT — Matt, by voice (relayed by Chief of Staff):**
+1. The TikTok (@ai.honeycove, https://www.tiktok.com/t/ZTfX5RyyD/) is the BUILD SPEC. Analysis (`/workspace/tiktok/video_analysis.md`): the video never mentions Blotato/Rotato/Sabrina; it shows agency-agents as a **one-person AI agency**: install roster into many tools, division-organized roster, an Agents Orchestrator coordinating many agents on one project, a "subagent canvas" of agent cards with per-agent task progress (4/11…11/11), output summaries and a deliverables montage.
+2. Map every autonomy mechanism in the repo -> `docs/AUTONOMY_MAP.md`.
+3. Three-layer audit at every stage, failures fixed and re-audited, recorded as corrections.
+4. Must run in Matt's absence: autonomy tiers, auto-approve internal work, timeout/escalation, queue so nothing blocks on him. Still needs Matt: sending, buying, posting live, settings changes, spend, merging to main, public deploy.
+
+**Resulting product definition:** a one-person-agency **control center** (roster browser by division, orchestrator canvas with live per-agent progress, deliverables gallery, team install export) **plus** the Blotato-style content engine (brand voice, idea -> 6 platforms, EN/FR, QA/fact-check, queue, calendar, analytics, replies, leads).
+
+Added goals: G20 roster browser by division + runbook teams + install export; G21 orchestrator canvas with per-agent progress; G22 deliverables gallery; G23 autonomy tiers + auto-fix (max 3) + 24 h escalation + digest; G24 AUTONOMY_MAP.md.
