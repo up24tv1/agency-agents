@@ -2,7 +2,7 @@
 
 ## Positioning vs Blotato
 Blotato (blotato.com/pricing, read Oct 26, 2026): Starter $29/mo, Creator $97/mo, Agency $499/mo; 7-day trial with card; AI writing, AI images/video (credit-metered), scheduling/publishing to many platforms, DM/comment automation, API + MCP on paid plans.
-Studio's angle: **"a whole agency team, not a posting tool."** Differentiators that exist in v1: named specialist agents per stage (268 agents scanned from the MIT library), built-in QA + fact-check gates that block unverifiable numbers and risky claims, auto-fix loop, EN/FR, approval-first, works offline with no key. Gaps vs Blotato today: **no direct publishing, no image/video generation, no DM automation, no multi-user** — do not market parity.
+Studio's angle: **"a whole agency team, not a posting tool."** Differentiators that exist in v1: named specialist agents per stage (283 agents scanned from the MIT library), built-in QA + fact-check gates that block unverifiable numbers and risky claims, auto-fix loop, EN/FR, approval-first, works offline with no key. Gaps vs Blotato today: **no direct publishing, no image/video generation, no DM automation, no multi-user** — do not market parity.
 
 ## Pricing hypotheses (to test, not decided — Matt decides)
 - Solo (1 brand): $19–29/mo · Pro (5 brands, BYO model key): $49–79/mo · Agency (white-label, client approval links): $149–299/mo.

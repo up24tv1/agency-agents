@@ -23,6 +23,6 @@ Data lives in your browser's localStorage (Settings -> Erase to reset). `studio/
 Settings -> Mode "OpenAI-compatible", Base URL, Model, optional key. Free/local example: install Ollama, `ollama pull llama3.1`, base `http://localhost:11434/v1`. Note: a browser-stored key is only acceptable for single-user local use; the SaaS version must move calls server-side (see `docs/PRODUCTIZATION.md`).
 
 ## Docs
-`docs/PLAN.md` (goals, verbatim asks) · `docs/ARCHITECTURE.md` · `docs/AGENT_MAP.md` · `docs/AUTONOMY_MAP.md` (+ autonomy tiers) · `docs/PRODUCTIZATION.md` · `audit/AUDIT.md`.
+`docs/PLAN.md` (goals, verbatim asks) · `docs/ARCHITECTURE.md` · `docs/AGENT_MAP.md` · `docs/AUTONOMY_MAP.md` (+ autonomy tiers) · `docs/PRODUCTIZATION.md` · `audit/AUDIT.md`, `docs/SCHEDULE.md` (runner cron, awaiting OK).
 
 E2E (optional): `cd <dir> && npm i playwright @axe-core/playwright`, start `serve.mjs`, then `node studio/test/e2e.playwright.mjs` (paths inside write to /workspace/rotato-100x; edit for your machine).
