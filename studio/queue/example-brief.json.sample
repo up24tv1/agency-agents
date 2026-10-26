@@ -1,0 +1,4 @@
+{ "brief": { "topic": "missed calls after hours", "audience": "Austin plumbers", "goal": "book discovery calls",
+  "points": "An AI receptionist answers the call.\nYou get a text summary.", "facts": "" },
+  "brand": { "id": "aamc", "voice": "Plain-spoken, local", "cta": "Reply INFO and I'll send details.", "cta_fr": "Répondez INFO.", "banned": ["guaranteed"], "hashtags": ["AustinSmallBusiness"], "keywords": ["Austin"] },
+  "platforms": ["x","instagram","linkedin","tiktok"], "langs": ["en","fr"] }
